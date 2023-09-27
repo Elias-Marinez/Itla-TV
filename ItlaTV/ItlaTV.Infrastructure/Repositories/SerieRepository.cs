@@ -1,12 +1,12 @@
 ﻿
 using ItlaTV.Domain.Entities;
-using ItlaTV.Domain.Repository;
 using ItlaTV.Infrastructure.Context;
 using ItlaTV.Infrastructure.Core;
+using ItlaTV.Infrastructure.Interfaces;
 
 namespace ItlaTV.Infrastructure.Repositories
 {
-    public class SerieRepository : BaseRepository<Serie>, IBaseRepository<Serie>
+    public class SerieRepository : BaseRepository<Serie>, ISerieRepository
     {
         private readonly ApplicationContext _context;
         public SerieRepository(ApplicationContext context) : base(context)

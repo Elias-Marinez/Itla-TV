@@ -20,6 +20,7 @@ namespace ItlaTV.Application.Service
         {
             ServiceResult result = new ServiceResult();
 
+
             try
             {
                 result.Data = await _repository.GetEntities();
@@ -32,7 +33,6 @@ namespace ItlaTV.Application.Service
 
             return result;
         }
-
         public async Task<ServiceResult> GetById(int id)
         {
             ServiceResult result = new ServiceResult();

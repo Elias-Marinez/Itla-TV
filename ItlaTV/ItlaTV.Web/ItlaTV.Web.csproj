@@ -11,10 +11,18 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ItlaTV.Application\ItlaTV.Application.csproj" />
+    <ProjectReference Include="..\ItlaTV.Domain\ItlaTV.Domain.csproj" />
     <ProjectReference Include="..\ItlaTV.Infrastructure\ItlaTV.Infrastructure.csproj" />
+    <ProjectReference Include="..\ItlaTV.IOC\ItlaTV.IOC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Productora\" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dependencies\" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ItlaTV.Application\ItlaTV.Application.csproj" />
+    <ProjectReference Include="..\ItlaTV.Infrastructure\ItlaTV.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 using ItlaTV.Infrastructure.Context;
+using ItlaTV.IOC.Dependencies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSerieDependency();
+builder.Services.AddGeneroDependency();
+builder.Services.AddProductoraDependency();
 
 var app = builder.Build();
 
