@@ -1,0 +1,41 @@
+﻿@model ItlaTV.Web.Models.Serie.SerieViewModel
+@{
+    ViewData["Title"] = "Serie Details";
+}
+
+<div class="container" id="featured-3">
+    <div class="d-flex justify-content-between bottom-line">
+        <div>
+            <h1 class="d-inline mt-auto">@Html.DisplayFor(model => model.Nombre)</h1>
+        </div>
+        <div>
+            <div class="input-group mt-2">
+                <a class="btn btn-primary m-2" asp-action="Index">Regresar</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+    @{
+        var videoId = GetID(Model.Enlace);
+    }
+    <div class="text-center">
+        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="788" height="443" type="text/html" 
+        src="https://www.youtube.com/embed/@videoId?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+            </iframe>
+    </div>
+</div>
+
+@functions {
+    public string GetID(string youtubeUrl)
+    {
+        if (string.IsNullOrEmpty(youtubeUrl))
+        {
+            return string.Empty;
+        }
+        var uri = new Uri(youtubeUrl);
+        var queryString = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        var videoId = queryString["v"];
+
+        return videoId;
+    }
+}

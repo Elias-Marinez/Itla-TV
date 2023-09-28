@@ -1,8 +1,94 @@
-﻿@{
+﻿@model ItlaTV.Web.Models.Home.HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container" id="featured-3">
+    <div class="d-flex justify-content-between bottom-line">
+        <div>
+            <h1 class="d-inline mt-auto">Home</h1>
+        </div>
+        <div>
+            <div class="input-group mt-2">
+                <input type="text" id="filtroSerie" class="form-control" placeholder="" aria-label="Buscar serie....." aria-describedby="button">
+                <button class="btn btn-outline-primary" type="button" id="button" onclick="buscarSeries()">Buscar</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex">
+                            <h5 class="card-title">
+                                Productoras
+                            </h5>
+                        </div>
+                        <div class="mb-2 d-flex">
+                            @if(Model.Productoras.Count() == 0)
+                            {
+                                <h3> No existen productoras</h3>
+                            }
+                            else
+                            {
+                                <div class="col-1"></div>
+                                <div class="col-8">
+                                    @foreach (var item in Model.Productoras)
+                                    {
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="productoras" value="@item.Nombre">
+                                            <label class="form-check-label" for="productora-@item.Nombre">
+                                                @item.Nombre
+                                            </label>
+                                        </div>
+                                    }
+                                </div>  
+                            }
+                        </div>
+                        <div class="mb-2 mt-auto text-center">
+                            <button class="btn btn-outline-primary col-12 mx-auto" type="button" id="button" onclick="buscarProductoras()">
+                                Filtrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (Model.Series.Count() == 0)
+            {
+                <h3>No existen series</h3>
+            }
+            else
+            {
+                @foreach(var item in Model.Series)
+                {
+                <div class="col-md-4 col-sm-6 mb-4 box">
+                    <div class="card">
+                        <img src="/imagenes/series/@item.ImagePath" class="card-img-top" height="200" alt="@item.Nombre">
+                        <div class="card-body d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <h5 class="card-title">
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </h5>
+                                    <div>
+                                        <h5 class="fw-lighter fs-6">
+                                            &nbsp(@Html.DisplayFor(modelItem => item.NGenero),
+                                            @Html.DisplayFor(modelItem => item.SNGenero))
+                                        </h5>
+                                    </div>
+                                </div>
+                            <div class="text-center productora mb-2">@Html.DisplayFor(modelItem => item.NombreProductora)</div>
+                            <div class="mb-2 mt-auto text-center">
+                                <a asp-action="Details" asp-route-id="@item.SerieId" class="btn btn-block btn-success col-12 mx-auto">
+                                    Detalles
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            }
+        </div>
+    </div>
 </div>
