@@ -10,8 +10,12 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServe
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddFileManagerDependency();
+
 builder.Services.AddSerieDependency();
+
 builder.Services.AddGeneroDependency();
+
 builder.Services.AddProductoraDependency();
 
 var app = builder.Build();

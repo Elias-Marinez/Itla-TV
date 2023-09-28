@@ -1,0 +1,32 @@
+﻿@model ItlaTV.Web.Models.Serie.SerieRemoveViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Serie";
+}
+
+<h1>Series</h1>
+
+<h3>¿Está seguro que desea eliminar esta productora?</h3>
+<div>
+    <h4>Eliminar Serie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SerieId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SerieId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Aceptar" class="btn btn-success" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>

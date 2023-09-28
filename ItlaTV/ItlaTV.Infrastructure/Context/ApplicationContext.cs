@@ -10,9 +10,9 @@ namespace ItlaTV.Infrastructure.Context
         {
         }
 
-        DbSet<Productora> Productoras { get; set; }
-        DbSet<Genero> Generos { get; set; }
-        DbSet<Serie> Series { get; set; }
+        public DbSet<Productora> Productoras { get; set; }
+        public DbSet<Genero> Generos { get; set; }
+        public DbSet<Serie> Series { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

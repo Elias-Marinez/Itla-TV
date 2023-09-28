@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ItlaTV.Web.Models.Serie.SerieViewModel>
+
+@{
+    ViewData["Title"] = "Series";
+}
+
+<div class="container" id="featured-3">
+    <div class="d-flex justify-content-between bottom-line">
+        <div>
+            <h1 class="d-inline">Series</h1>
+        </div>
+        <div>
+            <a class="btn btn-primary m-2" asp-action="Create">Nueva Serie</a>
+        </div>
+    </div>
+    <hr />
+    <div class="container">
+        @if (Model.Count() == 0)
+        {
+            <h3>No existen series</h3>
+        }
+        else
+        {
+            <div class="row">
+                @foreach(var item in Model)
+                {
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="/imagenes/series/@item.ImagePath" class="card-img-top" height="200" alt="@item.Nombre">
+                        <div class="card-body d-flex flex-column">
+                                <div class="d-flex align-items-center">
+                                    <h5 class="card-title">
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </h5>
+                                    <div>
+                                        <h5 class="fw-lighter fs-6">
+                                            &nbsp(@Html.DisplayFor(modelItem => item.NGenero),
+                                            @Html.DisplayFor(modelItem => item.SNGenero))
+                                        </h5>
+                                    </div>
+                                </div>
+                            <div class="text-center mb-2">
+                                @Html.DisplayFor(modelItem => item.NombreProductora)
+                            </div>
+                            <div class="mb-2 mt-auto text-center">
+                                <a asp-action="Edit" asp-route-id="@item.SerieId" class="btn btn-block btn-warning col-5 mx-auto">
+                                    Editar
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.SerieId" class="btn btn-block btn-danger col-5 mx-auto">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        }
+    </div>
+</div>

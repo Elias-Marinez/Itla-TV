@@ -1,0 +1,64 @@
+﻿@model ItlaTV.Web.Models.Serie.SerieCreateViewModel
+
+@{
+    ViewData["Title"] = "Series";
+}
+
+<h1>Series</h1>
+
+<h4>Nueva Serie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagen" class="control-label"></label>
+                <input type="file" asp-for="Imagen" class="form-control" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductoraId" class="control-label">Productora</label>
+                <select asp-for="ProductoraId" asp-items="@(new SelectList(Model.Productoras, "ProductoraId", "Nombre"))" class="form-control" required>
+                    <option value="">Seleccionar una productora</option>
+                </select>
+                <span asp-validation-for="ProductoraId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeneroId" class="control-label">Genero Principal</label>
+                <select asp-for="GeneroId" asp-items="@(new SelectList(Model.Generos, "GeneroId", "Nombre"))" class="form-control" required>
+                    <option value="">Seleccionar un genero</option>
+                </select>
+                <span asp-validation-for="GeneroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SGeneroId" class="control-label">Genero Secundario</label>
+                <select asp-for="SGeneroId" asp-items="@(new SelectList(Model.Generos, "GeneroId", "Nombre"))" class="form-control" required>
+                    <option value="">Seleccionar un genero</option>
+                </select>
+                <span asp-validation-for="SGeneroId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enlace" class="control-label"></label>
+                <input asp-for="Enlace" class="form-control" />
+                <span asp-validation-for="Enlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
