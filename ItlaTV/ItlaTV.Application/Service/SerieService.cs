@@ -3,9 +3,7 @@ using ItlaTV.Application.Contract;
 using ItlaTV.Application.Core;
 using ItlaTV.Application.Dtos.Serie;
 using ItlaTV.Application.Extentions;
-using ItlaTV.Domain.Entities;
 using ItlaTV.Infrastructure.Interfaces;
-using System.Linq.Expressions;
 
 namespace ItlaTV.Application.Service
 {

@@ -5,28 +5,25 @@
 }
 
 <h1>Productoras</h1>
-
-<h3>¿Está seguro que desea eliminar esta productora?</h3>
-<div>
-    <h4>GeneroViewModel</h4>
+<div class="row">
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <h3>¿Está seguro que desea eliminar esta productora?</h3>
+    <dl class="row md-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProductoraId)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ProductoraId)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
     </dl>
-    
     <form asp-action="Delete">
-        <input type="submit" value="Aceptar" class="btn btn-success" /> |
-        <a asp-action="Index">Cancelar</a>
+        <input type="submit" value="Aceptar" class="btn btn-danger col-2 mx-auto" />
+        <a asp-action="Index" class="btn btn-primary col-2 mx-auto">Cancelar</a>
     </form>
 </div>

@@ -1,33 +1,43 @@
 ﻿@model ItlaTV.Web.Models.Productora.ProductoraViewModel
 
 @{
-    ViewData["Title"] = "Crear productora";
+    ViewData["Title"] = "Agregar Productora";
 }
 
-<h1>Productoras</h1>
-
-<h4>Nueva Productora</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="d-flex justify-content-between bottom-line">
+    <div>
+        <h1 class="d-inline">Productoras</h1>
+    </div>
+    <div>
+        <h5 class="fw-ligther m-3">Agregando productora</h5>
     </div>
 </div>
+<hr />
 
-<div>
-    <a asp-action="Index">Regresar</a>
+<div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <form asp-action="Create">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="form-group mt-2 text-center">
+                        <input type="submit" value="Guardar" class="btn btn-block btn-success col-6 mx-auto" />
+                        <a asp-action="Index" class="btn btn-block btn-primary col-5 mx-auto">Regresar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
